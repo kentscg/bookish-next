@@ -3,12 +3,16 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "start": "next start"
+    "start": "next start",
+    "generate-api-client": "rimraf ./api && openapi-generator-cli generate -g typescript-axios -i http://127.0.0.1:8080/openapi.json -o ./api --additional-properties=typescriptThreePlus=true --skip-validate-spec"
   },
   "dependencies": {
+    "@openapitools/openapi-generator-cli": "^2.13.12",
+    "axios": "^1.7.7",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "rimraf": "^6.0.1"
   },
   "engines": {
     "node": ">=18"
